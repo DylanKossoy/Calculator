@@ -28,7 +28,7 @@ button {
 }
 
 .input-container {
-  height: 60px;
+  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,13 +36,13 @@ button {
 
 .calculator-output {
   width: calc(500px - 6rem);
-  height: 60px;
+  height: 80px;
   border: none;
   outline: none;
   background: rgba(255, 255, 255, 0.208);
   padding-inline: 1rem;
   color: white;
-  font-size: 35px;
+  font-size: 50px;
   text-align: end;
 }
 
@@ -118,4 +118,30 @@ button {
     background: rgba(255, 255, 255, 0.315);
     font-size: 30px;
     color: rgb(94, 94, 94);
+}
+
+
+.lower-buttons-container {
+
+  width: calc(500px - 5.5rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.equal-button {
+  width: 95px;
+  height: 60px;
+  margin-inline: 0.25rem;
+  background: rgba(29, 42, 37, 0.339);
+  border: none;
+  color: white;
+  font-size: 30px;
+}
+
+
+button:hover {
+  
+  opacity: 30%;
 }
