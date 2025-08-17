@@ -41,7 +41,7 @@ button {
   outline: none;
   background: rgba(255, 255, 255, 0.208);
   padding-inline: 1rem;
-  color: white;
+  color: rgb(4, 0, 0);
   font-size: 50px;
   text-align: end;
 }
