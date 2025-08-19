@@ -14,6 +14,7 @@ class calculator {
         let output = document.querySelector('.calculator-output')
         let numberButtons = document.querySelectorAll('.number-button')
         let operatorButtons = document.querySelectorAll('.operator-button')
+        let equalButton = document.querySelector('.equal-button')
 
         numberButtons.forEach(button => {
             button.addEventListener('click', (e) => {
@@ -49,7 +50,7 @@ class calculator {
 
 
 
-                if(!e.target.value || !this.currentNum || this.operator) return
+                if(!e.target.value) return
 
                 if(e.target.value === 'AC') {
                     this.clearCalc()
@@ -57,9 +58,10 @@ class calculator {
 
                 if(e.target.value === 'DEL') {
                     let out = document.querySelector('.calculator-output')
+                
                     if(!out.value || !this.currentNum) return
                     
-
+                    
 
 
                 
@@ -96,20 +98,77 @@ class calculator {
 
                     }
                 }
+                let out = document.querySelector('.calculator-output')
 
-                if(e.target.value === '/') {
-                    let out = document.querySelector('.calculator-output')
+                switch(e.target.value){
+                    case '/':
+                        if(this.operator) return
                     
-                    this.operator = e.target.value
+                        this.operator = e.target.value
 
-                    out.value = this.oldNum
+                        out.value = this.oldNum
+                        break;
+                    case 'x':
+                        if(this.operator) return
                     
-                    
-                    
-                    
+                        this.operator = e.target.value
 
+                        out.value = this.oldNum
+                        break;
+                    case '+':
+                        if(this.operator) return
+                    
+                        this.operator = e.target.value
+
+                        out.value = this.oldNum
+                        break;
+                    case '-':
+                        if(this.operator) return
+                    
+                        this.operator = e.target.value
+
+                        out.value = this.oldNum
+                        break;
                 }
+
+               
             })
+        })
+
+
+        equalButton.addEventListener('click', () => {
+            let answer = null;
+            let out = document.querySelector('.calculator-output')
+
+
+            if(!this.currentNum || !this.operator || !this.oldNum) return
+
+
+            switch(this.operator) {
+                case '/':
+                    answer = parseInt(this.currentNum) / parseInt(this.oldNum)
+                    break;
+                case 'x':
+                    answer = parseInt(this.currentNum) * parseInt(this.oldNum)
+                    break;
+                case '+':
+                    answer = parseInt(this.currentNum) + parseInt(this.oldNum)
+                    break;
+                case '-':
+                    answer = parseInt(this.currentNum) - parseInt(this.oldNum)
+                    break;
+            }
+
+            
+
+            this.currentNum = answer
+
+            out.value = this.currentNum
+            this.oldNum = null;
+            this.operator = null;
+            
+
+
         })
 
 
