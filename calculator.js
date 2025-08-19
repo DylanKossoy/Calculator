@@ -18,6 +18,7 @@ class calculator {
         numberButtons.forEach(button => {
             button.addEventListener('click', (e) => {
                 output.value += e.target.value
+                console.log("current num: " + this.currentNum + "old num: " + this.oldNum)
 
                 if (!this.operator) {
                     this.currentNum = output.value
@@ -36,7 +37,19 @@ class calculator {
 
         operatorButtons.forEach(button => {
             button.addEventListener('click', (e) => {
-                if(!e.target.value || !this.currentNum || this.operator || this.oldNum) return
+
+
+
+
+
+
+
+
+
+
+
+
+                if(!e.target.value || !this.currentNum || this.operator) return
 
                 if(e.target.value === 'AC') {
                     this.clearCalc()
@@ -45,10 +58,14 @@ class calculator {
                 if(e.target.value === 'DEL') {
                     let out = document.querySelector('.calculator-output')
                     if(!out.value || !this.currentNum) return
+                    
 
+
+
+                
                   
 
-                    if(!this.oldNum) {
+                    if(!this.operator) {
                         
                         let str = out.value.toString()
                    
@@ -64,6 +81,7 @@ class calculator {
                         
                     } else {
                         let str = out.value.toString()
+                        console.log("old num")
                    
                         
                         let newStr = str.slice(0, -1)
@@ -80,7 +98,14 @@ class calculator {
                 }
 
                 if(e.target.value === '/') {
+                    let out = document.querySelector('.calculator-output')
+                    
                     this.operator = e.target.value
+
+                    out.value = this.oldNum
+                    
+                    
+                    
                     
 
                 }
